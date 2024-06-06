@@ -1,0 +1,22 @@
+<header>
+    <h1>CMS Blog</h1>
+    <nav>
+        <a href="/">Home</a>
+        {{#if logged_in}}
+            <a href="/dashboard">Dashboard</a>
+            <a href="/logout">Logout</a>
+        {{else}}
+            <a href="/login">Login</a>
+            <a href="/signup">Sign Up</a>
+        {{/if}}
+    </nav>
+</header>
+
+<main>
+    {{#each posts}}
+        <article>
+            <h2><a href="/post/{{id}}">{{title}}</a></h2>
+            <p>Posted by {{user.username}} on {{createdAt}}</p>
+        </article>
+    {{/each}}
+</main>
